@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const mongoosastic = require('mongoosastic');
+
 const {Schema} = mongoose;
 
 const schema = new Schema({
@@ -59,6 +61,7 @@ schema.post('find', function () {
     }
 });
 
+schema.plugin(mongoosastic);
 module.exports = model = mongoose.model('countries', schema);
 
 module.exports.findAllData = value => {
